@@ -20,6 +20,10 @@ export default {
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
 
+  router: {
+    middleware: 'auth'
+  },
+
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [],
 
@@ -40,21 +44,27 @@ export default {
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     '@nuxtjs/firebase',
-    {
-      config: {
-        apiKey: "AIzaSyAYGIxsD6N2DlirqoAi74x39C-MLfVd_gc",
-        authDomain: "booking-system-36fb6.firebaseapp.com",
-        projectId: "booking-system-36fb6",
-        storageBucket: "booking-system-36fb6.appspot.com",
-        messagingSenderId: "623024028406",
-        appId: "1:623024028406:web:cba1696859a60a4ee80ad7"
-      },
-      services: {
-        auth: true,
-        firestore: true
-      }
-    }
   ],
+
+  firebase: {
+    config: {
+      apiKey: "AIzaSyAYGIxsD6N2DlirqoAi74x39C-MLfVd_gc",
+      authDomain: "booking-system-36fb6.firebaseapp.com",
+      projectId: "booking-system-36fb6",
+      storageBucket: "booking-system-36fb6.appspot.com",
+      messagingSenderId: "623024028406",
+      appId: "1:623024028406:web:cba1696859a60a4ee80ad7"
+    },
+    services: {
+      auth: {
+        persistence: 'local',
+        initialize: {
+          onAuthStateChangedMutation: 'ON_AUTH_STATE_CHANGED_MUTATION',
+        }
+      },
+      firestore: true,
+    },
+  },
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
   vuetify: {
