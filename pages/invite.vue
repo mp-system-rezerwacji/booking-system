@@ -33,7 +33,7 @@ export default {
     error: '',
   }),
   async created() {
-    this.invite = await this.$fire.firestore.collection('invites').doc(this.$route.query.uid).get();
+    this.invite = await this.$fire.firestore.collection('invites').doc(this.$route.query.id).get();
     this.loading = false;
   },
   methods: {
