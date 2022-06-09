@@ -1,6 +1,6 @@
 <template>
   <div v-if="$store.state.user">
-    <div>Hello, {{$store.state.user.email}} {{$store.state.user.verified}}</div>
+    <div>Hello, {{$store.state.user.email}}</div>
     <div v-for="doc in data" :key="doc.id">
       {{doc.name}}
     </div>
@@ -17,6 +17,6 @@ export default {
   async created() {
     const res = await this.$fire.firestore.collection('reservations').get();
     this.data = res.docs.map(x => x.data());
-  }
+  },
 }
 </script>

@@ -39,6 +39,7 @@ export default {
     '@nuxt/typescript-build',
     // https://go.nuxtjs.dev/vuetify
     '@nuxtjs/vuetify',
+    '@nuxtjs/dotenv',
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -65,6 +66,10 @@ export default {
       firestore: true,
     },
   },
+
+  serverMiddleware: [
+    { path: '/api', handler: '~/server-middleware/api.ts' }
+  ],
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
   vuetify: {

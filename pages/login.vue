@@ -15,6 +15,7 @@
 <script lang='ts'>
 import { FirebaseError } from '@firebase/app';
 import Vue from 'vue';
+import { sleep } from '../utils/utils';
 
 export default Vue.extend({
   data: () => ({
@@ -40,7 +41,7 @@ export default Vue.extend({
           return;
         }
 
-        await new Promise((resolve, reject) => setTimeout(resolve, 200));
+        await sleep(500);
 
         await this.$router.push({
           path: '/',

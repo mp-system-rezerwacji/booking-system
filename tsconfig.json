@@ -15,7 +15,8 @@
       "~/*": ["./*"],
       "@/*": ["./*"]
     },
-    "types": ["@nuxt/types", "@types/node", "@nuxtjs/firebase"]
+    "types": ["@nuxt/types", "@types/node", "@nuxtjs/firebase", "firebase-admin"],
+    "typeRoots" : ["./"]
   },
   "exclude": ["node_modules", ".nuxt", "dist"]
 }
