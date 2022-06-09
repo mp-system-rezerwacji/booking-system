@@ -5,6 +5,7 @@ import { User } from '@firebase/auth';
 interface AppUser {
   uid: string;
   email: string;
+  verified: boolean;
 }
 
 export const state = () => ({
@@ -18,7 +19,8 @@ export const mutations: MutationTree<RootState> = {
     if (authUser) {
       state.user = {
         uid: authUser.uid,
-        email: authUser.email
+        email: authUser.email,
+        verified: claims.verified,
       }
     } else {
       state.user = null
